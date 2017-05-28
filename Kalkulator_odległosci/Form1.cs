@@ -28,14 +28,19 @@ namespace Kalkulator_odległosci
             endingMileage = (int)numericUpDown2.Value;
             if (startingMileage <= endingMileage)
             {
-                milesTraveled = endingMileage -= startingMileage;
-                amountOwed = milesTraveled *= reimburseRate;
+                milesTraveled = endingMileage - startingMileage;
+                amountOwed = milesTraveled * reimburseRate;
                 label4.Text = amountOwed.ToString() + " zł";
             }
             else
             {
                 MessageBox.Show("Początkowy stan licznika musi być mniejszy niż końcowy", "Nie mogę obliczyć odległości");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(milesTraveled + " kilometrów", "Przebyta odległość");
         }
     }
 }
